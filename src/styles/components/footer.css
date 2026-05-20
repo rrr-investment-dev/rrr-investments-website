@@ -1,0 +1,289 @@
+/* BASE — SMALL MOBILE (0–424px) */
+
+.page-container.sticky-footer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin-top: 40px;
+  background: none;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  position: relative;
+}
+
+.footer-brand-section {
+  background: #eff1f5;
+  padding: 25px 20px;
+  width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 2;
+  border-bottom-right-radius: 72px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.footer-logo {
+  width: 20px;
+  height: auto;
+}
+
+.footer-text {
+  display: flex;
+  align-items: center;
+}
+
+.footer-text-logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-links-section {
+  background-color: #00338d;
+  padding: 16px 42px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.footer-links {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-column h3 {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+
+.footer-column a {
+  font-size: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Noto Sans", sans-serif;
+}
+
+/* MEDIUM MOBILE (≥ 425px) */
+
+@media (min-width: 425px) {
+  .footer-logo {
+    width: 35px;
+  }
+
+  .footer-brand {
+    gap: 15px;
+  }
+
+  .footer-links-section {
+    padding: 16px 56px;
+  }
+
+  .footer-column h3 {
+    font-size: 14px;
+  }
+
+  .footer-column a {
+    font-size: 12px;
+  }
+}
+
+/* LARGE MOBILE / SMALL TABLET (≥ 640px) */
+
+@media (min-width: 640px) {
+  /* Layout remains identical */
+}
+
+/* TABLET (≥ 768px) */
+
+@media (min-width: 768px) {
+  .footer {
+    height: 200px;
+    padding: 33px 42px;
+    margin-top: 50px;
+    background: linear-gradient(90deg, #eff1f5 21.15%, #00338d 87.5%);
+  }
+
+  .footer-links-section {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .footer-content {
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer-brand-section {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+  }
+
+  .footer-brand {
+    gap: 28px;
+  }
+
+  .footer-logo {
+    width: 48px;
+  }
+
+  .footer-text-logo {
+    height: 120px;
+  }
+
+  .footer-links {
+    gap: 60px;
+  }
+
+  .footer-column {
+    gap: 12px;
+  }
+
+  .footer-column h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .footer-column a {
+    font-size: 14px;
+  }
+}
+
+/* DESKTOP (≥ 1024px) */
+
+@media (min-width: 1024px) {
+  .footer {
+    height: 309px;
+    padding: 80px 49px;
+    margin-top: 60px;
+  }
+
+  .footer-links-section {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .footer-brand {
+    gap: 36px;
+  }
+
+  .footer-logo {
+    width: 60px;
+  }
+
+  .footer-text-logo {
+    height: 160px;
+  }
+
+  .footer-links {
+    gap: 80px;
+  }
+
+  .footer-column h3 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .footer-column a {
+    font-size: 16px;
+  }
+}
+
+/* LARGE DESKTOP (≥ 1280px) */
+
+@media (min-width: 1280px) {
+  .footer {
+    padding: 80px 155px;
+  }
+}
+
+/* EXTRA LARGE DESKTOP (≥ 1600px) */
+@media (min-width: 1600px) {
+  .footer {
+    padding: 80px 155px;
+  }
+}
+
+/* FOOTER BOTTOM BAR (SEBI Reg & Legal) */
+.footer-bottom-bar {
+  width: 100%;
+  background-color: #002266; /* Darker than main footer */
+  color: #ffffff;
+  text-align: center;
+  padding: 12px 20px;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.footer-bottom-bar p {
+  margin: 0;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+}
+
+@media (min-width: 425px) {
+  .footer-bottom-bar {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer-bottom-bar {
+    padding: 14px 42px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-bottom-bar {
+    padding: 16px 49px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .footer-bottom-bar {
+    padding: 16px 155px;
+  }
+}
