@@ -551,7 +551,7 @@
 
 .dashboard-cards {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 0;
   gap: 30px;
   flex: 1;
