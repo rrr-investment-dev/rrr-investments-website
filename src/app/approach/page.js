@@ -505,13 +505,13 @@ export default function ApproachPage() {
 
         <section className="markets-section">
           <div className="markets-heading-block">
-            <h2 className="markets-title">We don't just follow markets.</h2>
+            <h2 className="markets-title">We don&apos;t just follow markets.</h2>
             <p className="markets-subtitle">We meet them, question them, and get ahead of them</p>
           </div>
           <blockquote className="markets-quote">
             <p>
               At RRR Investments, investing is not about chasing the next
-              headline, it's about anticipating the shifts that matter. By
+              headline, it&apos;s about anticipating the shifts that matter. By
               combining data, dialogue, and discipline, we uncover opportunities
               that create lasting value.
             </p>
@@ -524,7 +524,7 @@ export default function ApproachPage() {
 
         <section className="insights-section">
           <p className="insights-heading">Your next investment decision begins here.</p>
-          <p className="insights-subheading">Let's explore how RRR crafts exclusive portfolios for growth.</p>
+          <p className="insights-subheading">Let&apos;s explore how RRR crafts exclusive portfolios for growth.</p>
           <button className="insights-cta-button" onClick={() => setIsPopupOpen(true)}>
             Schedule a Discovery Call
           </button>

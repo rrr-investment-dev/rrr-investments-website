@@ -7,7 +7,6 @@ import "@/styles/insights.css";
 
 export default function InsightsPage() {
   const [posts, setPosts] = useState([]);
-  const [filteredPosts, setFilteredPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedPlatform, setSelectedPlatform] = useState("all");
@@ -31,7 +30,6 @@ export default function InsightsPage() {
         }
         
         setPosts(postsArray);
-        setFilteredPosts(postsArray);
       } catch (error) {
         console.error("Failed to load insights posts", error);
       } finally {
@@ -41,30 +39,26 @@ export default function InsightsPage() {
     loadPosts();
   }, []);
 
-  // Filter and search posts whenever query, selected platform, or posts change
-  useEffect(() => {
-    let result = posts;
+  // Filter and search posts (derived during render)
+  let filteredPosts = posts;
 
-    // Filter by platform
-    if (selectedPlatform !== "all") {
-      result = result.filter(
-        (post) => post.platform && post.platform.toLowerCase() === selectedPlatform.toLowerCase()
-      );
-    }
+  // Filter by platform
+  if (selectedPlatform !== "all") {
+    filteredPosts = filteredPosts.filter(
+      (post) => post.platform && post.platform.toLowerCase() === selectedPlatform.toLowerCase()
+    );
+  }
 
-    // Filter by search query
-    if (searchQuery.trim() !== "") {
-      const query = searchQuery.toLowerCase();
-      result = result.filter(
-        (post) =>
-          (post.title && post.title.toLowerCase().includes(query)) ||
-          (post.subTitle && post.subTitle.toLowerCase().includes(query)) ||
-          (post.description && post.description.toLowerCase().includes(query))
-      );
-    }
-
-    setFilteredPosts(result);
-  }, [searchQuery, selectedPlatform, posts]);
+  // Filter by search query
+  if (searchQuery.trim() !== "") {
+    const query = searchQuery.toLowerCase();
+    filteredPosts = filteredPosts.filter(
+      (post) =>
+        (post.title && post.title.toLowerCase().includes(query)) ||
+        (post.subTitle && post.subTitle.toLowerCase().includes(query)) ||
+        (post.description && post.description.toLowerCase().includes(query))
+    );
+  }
 
   const getImageUrl = (imagePath) => {
     if (!imagePath) return "/assets/Images/market-outlook-section-image.jpg";
@@ -200,7 +194,7 @@ export default function InsightsPage() {
           // Empty State
           <div className="insights-empty-state">
             <h3>No Insights Found</h3>
-            <p>We couldn't find any posts matching your search query or filter settings.</p>
+            <p>We couldn&apos;t find any posts matching your search query or filter settings.</p>
           </div>
         )}
       </section>

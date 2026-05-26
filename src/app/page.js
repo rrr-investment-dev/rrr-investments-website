@@ -428,7 +428,7 @@ export default function HomePage() {
             Your next investment decision begins here.
           </p>
           <p className="insights-subheading">
-            Let's explore how RRR crafts exclusive portfolios for growth.
+            Let&apos;s explore how RRR crafts exclusive portfolios for growth.
           </p>
           <button className="insights-cta-button" onClick={() => setIsPopupOpen(true)}>
             Schedule a Discovery Call
