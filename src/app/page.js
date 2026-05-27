@@ -20,7 +20,6 @@ export default function HomePage() {
     const loadPosts = async () => {
       try {
         const data = await fetchPosts();
-        console.log("Raw API Response:", data); // Let's see what the backend is actually returning
 
         // Extract array whether response is an array directly or inside a data/posts property
         let postsArray = [];

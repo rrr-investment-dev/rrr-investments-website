@@ -52,7 +52,6 @@ export const fetchPostById = async (id) => {
 export const fetchFormConfig = async () => {
   try {
     const url = `${API_BASE_URL}/website/contacts/config`;
-    console.log("Attempting to fetch form config from:", url);
     const response = await fetch(url, {
       method: 'GET',
       headers: {
