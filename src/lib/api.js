@@ -8,7 +8,7 @@ export const fetchPosts = async () => {
   try {
     const url = `${API_BASE_URL}/website/posts`;
     console.log("Attempting to fetch posts from:", url);
-    
+
     const response = await fetch(url, {
       method: 'GET',
       headers: {
