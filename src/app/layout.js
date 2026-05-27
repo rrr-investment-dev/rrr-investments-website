@@ -10,6 +10,9 @@ export const metadata = {
   description:
     "RRR Investments is a SEBI-registered Alternative Investment Fund (AIF) focused on delivering superior risk-adjusted returns through disciplined investment strategies.",
   keywords: "RRR Investments, AIF, Alternative Investment Fund, SEBI, India",
+  icons: {
+    icon: "/assets/Images/rrr-favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {

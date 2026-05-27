@@ -21,7 +21,7 @@ export default function HomePage() {
       try {
         const data = await fetchPosts();
         console.log("Raw API Response:", data); // Let's see what the backend is actually returning
-        
+
         // Extract array whether response is an array directly or inside a data/posts property
         let postsArray = [];
         if (Array.isArray(data)) {
@@ -33,7 +33,7 @@ export default function HomePage() {
         } else if (data && data.data && Array.isArray(data.data.posts)) {
           postsArray = data.data.posts;
         }
-        
+
         // Set all posts returned by the API
         setPosts(postsArray);
       } catch (error) {
@@ -48,7 +48,9 @@ export default function HomePage() {
   const getImageUrl = (imagePath) => {
     if (!imagePath) return "/assets/Images/market-outlook-section-image.jpg";
     if (imagePath.startsWith("http")) return imagePath;
-    const baseUrl = API_BASE_URL ? API_BASE_URL.replace("/api", "") : "http://localhost:3000";
+    const baseUrl = API_BASE_URL
+      ? API_BASE_URL.replace("/api", "")
+      : "http://localhost:3000";
     return `${baseUrl}${imagePath}`;
   };
 
@@ -64,8 +66,6 @@ export default function HomePage() {
       }
     };
     window.addEventListener("scroll", handleScroll);
-    // Initial call
-    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -119,7 +119,9 @@ export default function HomePage() {
             <h3 className="philosophy-heading">
               A Philosophy Rooted in Discipline
             </h3>
-            <div className={`company-description ${isReadMoreExpanded ? "active" : ""}`}>
+            <div
+              className={`company-description ${isReadMoreExpanded ? "active" : ""}`}
+            >
               <p className="desc-paragraph first-paragraph">
                 RRR is a dynamic investment institution founded with the purpose
                 of creating an institution deeply rooted in investment
@@ -182,8 +184,8 @@ export default function HomePage() {
                 <div className="infographic-card-content">
                   <span>Our Edge?</span>
                   <p>
-                    Bridging institutional insight with boutique attention. Where
-                    others see noise, we find signal.
+                    Bridging institutional insight with boutique attention.
+                    Where others see noise, we find signal.
                   </p>
                 </div>
               </div>
@@ -252,8 +254,9 @@ export default function HomePage() {
           />
           <div className="cta-content">
             <h2>
-              Get your investment in shape with<br />our active investing
-              strategies.
+              Get your investment in shape with
+              <br />
+              our active investing strategies.
             </h2>
           </div>
         </section>
@@ -261,7 +264,9 @@ export default function HomePage() {
 
       <div className="page-container">
         <section className="market-outlook-section">
-          <div className={`section-labels ${activeTab === "Research" ? "research-active" : ""}`}>
+          <div
+            className={`section-labels ${activeTab === "Research" ? "research-active" : ""}`}
+          >
             <div className="slider"></div>
             <span
               className={`label ${activeTab === "Insights" ? "active" : ""}`}
@@ -292,14 +297,15 @@ export default function HomePage() {
                   />
                   <div className="card-content">
                     <h3 className="main-heading">
-                      {posts[0].title} {posts[0].platform && `(${posts[0].platform})`}
+                      {posts[0].title}{" "}
+                      {posts[0].platform && `(${posts[0].platform})`}
                     </h3>
                     <h4 className="subheading">{posts[0].subTitle}</h4>
-                    <p className="description">
-                      {posts[0].description}
-                    </p>
+                    <p className="description">{posts[0].description}</p>
                     <div className="card-footer">
-                      <span className="arrows-links">Explore the complete story</span>
+                      <span className="arrows-links">
+                        Explore the complete story
+                      </span>
                       <a
                         href={posts[0].link || "#"}
                         className="arrows-links-wrapper arrow-btn"
@@ -311,20 +317,22 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-                
+
                 {posts.length > 1 && (
                   <div className="dashboard-cards">
                     {posts.slice(1, 3).map((post) => (
                       <div className="dashboard-card" key={post._id}>
                         <div className="blue-bar"></div>
                         <div className="dashboard-content">
-                          <h4>{post.title} {post.platform && `(${post.platform})`}</h4>
+                          <h4>
+                            {post.title} {post.platform && `(${post.platform})`}
+                          </h4>
                           <p className="subtitle">{post.subTitle}</p>
-                          <p className="desc">
-                            {post.description}
-                          </p>
+                          <p className="desc">{post.description}</p>
                           <div className="card-footer">
-                            <span className="arrows-links">Explore the complete story</span>
+                            <span className="arrows-links">
+                              Explore the complete story
+                            </span>
                             <a
                               href={post.link || "#"}
                               className="arrows-links-wrapper arrow-btn"
@@ -405,7 +413,9 @@ export default function HomePage() {
                 <span className="arrows-links arrows-links-white about-subheading">
                   Our standards
                 </span>
-                <button className="arrow-btn arrow-btn-white about-arrow">→</button>
+                <button className="arrow-btn arrow-btn-white about-arrow">
+                  →
+                </button>
               </div>
             </div>
             <img
@@ -430,7 +440,10 @@ export default function HomePage() {
           <p className="insights-subheading">
             Let&apos;s explore how RRR crafts exclusive portfolios for growth.
           </p>
-          <button className="insights-cta-button" onClick={() => setIsPopupOpen(true)}>
+          <button
+            className="insights-cta-button"
+            onClick={() => setIsPopupOpen(true)}
+          >
             Schedule a Discovery Call
           </button>
         </section>

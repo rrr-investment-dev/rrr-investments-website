@@ -32,7 +32,7 @@ export default function Footer() {
               <div className="footer-column">
                 <h3>RRR Investments</h3>
                 <Link href="/" id="footer-home-link">About</Link>
-                <Link href="/#strategy">Strategy</Link>
+                {/* <Link href="/#strategy">Strategy</Link> */}
                 <Link href="/teams" id="footer-team-link">Team</Link>
               </div>
               <div className="footer-column">
@@ -44,8 +44,8 @@ export default function Footer() {
                 >
                   LinkedIn
                 </a>
-                <Link href="#legal">Legal</Link>
-                <Link href="#disclaimer">Disclaimer</Link>
+                {/* <Link href="#legal">Legal</Link> */}
+                {/* <Link href="#disclaimer">Disclaimer</Link> */}
               </div>
             </div>
           </div>
