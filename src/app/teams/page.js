@@ -113,6 +113,7 @@ export default function TeamsPage() {
   const getImageUrl = (imagePath) => {
     if (!imagePath) return "/assets/Images/placeholder-team.png";
     if (imagePath.startsWith("http")) return imagePath;
+    console.log("API URL:", process.env.NEXT_PUBLIC_API_URL);
     const baseUrl = API_BASE_URL
       ? API_BASE_URL.replace("/api", "")
       : "";

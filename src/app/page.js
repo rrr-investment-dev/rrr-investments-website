@@ -48,9 +48,10 @@ export default function HomePage() {
   const getImageUrl = (imagePath) => {
     if (!imagePath) return "/assets/Images/market-outlook-section-image.jpg";
     if (imagePath.startsWith("http")) return imagePath;
+    console.log("API URL:", process.env.NEXT_PUBLIC_API_URL);
     const baseUrl = API_BASE_URL
       ? API_BASE_URL.replace("/api", "")
-      : "http://localhost:3000";
+      : "";
     return `${baseUrl}${imagePath}`;
   };
 
