@@ -16,7 +16,7 @@ export default function InsightsPage() {
     const loadPosts = async () => {
       try {
         const data = await fetchPosts();
-        
+
         // Extract array whether response is an array directly or inside a property
         let postsArray = [];
         if (Array.isArray(data)) {
@@ -28,7 +28,7 @@ export default function InsightsPage() {
         } else if (data && data.data && Array.isArray(data.data.posts)) {
           postsArray = data.data.posts;
         }
-        
+
         setPosts(postsArray);
       } catch (error) {
         console.error("Failed to load insights posts", error);
@@ -63,7 +63,9 @@ export default function InsightsPage() {
   const getImageUrl = (imagePath) => {
     if (!imagePath) return "/assets/Images/market-outlook-section-image.jpg";
     if (imagePath.startsWith("http")) return imagePath;
-    const baseUrl = API_BASE_URL ? API_BASE_URL.replace("/api", "") : "http://127.0.0.1:3000";
+    const baseUrl = API_BASE_URL
+      ? API_BASE_URL.replace("/api", "")
+      : "";
     return `${baseUrl}${imagePath}`;
   };
 
@@ -89,7 +91,7 @@ export default function InsightsPage() {
         </Link>
         <h1 className="insights-title">All Insights</h1>
         <p className="insights-subtitle">
-          Explore our complete archive of research, market outlook summaries, 
+          Explore our complete archive of research, market outlook summaries,
           and strategic posts curated for long-term investors.
         </p>
       </header>

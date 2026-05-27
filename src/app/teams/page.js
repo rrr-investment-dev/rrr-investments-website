@@ -20,7 +20,7 @@ export default function TeamsPage() {
         } else if (Array.isArray(response)) {
           members = response;
         }
-        
+
         // Filter active members only
         setTeamMembers(members.filter((m) => m.isActive !== false));
       } catch (error) {
@@ -103,7 +103,7 @@ export default function TeamsPage() {
       container.removeEventListener("mouseleave", startScroll);
       container.removeEventListener("touchstart", stopScroll);
       container.removeEventListener("touchend", startScroll);
-      
+
       // Remove clones to prevent duplicates on strict mode re-renders or updates
       const clones = container.querySelectorAll(".team-member--clone");
       clones.forEach((clone) => clone.remove());
@@ -113,7 +113,9 @@ export default function TeamsPage() {
   const getImageUrl = (imagePath) => {
     if (!imagePath) return "/assets/Images/placeholder-team.png";
     if (imagePath.startsWith("http")) return imagePath;
-    const baseUrl = API_BASE_URL ? API_BASE_URL.replace("/api", "") : "http://127.0.0.1:3000";
+    const baseUrl = API_BASE_URL
+      ? API_BASE_URL.replace("/api", "")
+      : "";
     return `${baseUrl}${imagePath}`;
   };
 
