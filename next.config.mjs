@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-   output: "export",
+  output: "export",
+  trailingSlash: true,
   images: {
     // Allow all local static images from the /public directory
     // without requiring explicit domain configuration.
