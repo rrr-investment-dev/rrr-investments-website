@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
+  output: process.env.RENDER === "true" ? undefined : "export",
   trailingSlash: true,
   images: {
     // Allow all local static images from the /public directory
