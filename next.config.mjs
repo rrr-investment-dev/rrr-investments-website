@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
+  trailingSlash: true,
   images: {
     // Allow all local static images from the /public directory
     // without requiring explicit domain configuration.
@@ -8,6 +9,7 @@ const nextConfig = {
     // once you have a CDN or image optimization service configured.
     unoptimized: true,
   },
+  // allowedDevOrigins: ['192.168.1.35'],
 };
 
 export default nextConfig;

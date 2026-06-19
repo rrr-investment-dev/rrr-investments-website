@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { fetchFormConfig, submitInquiry } from "@/lib/api";
 
+
 export default function DiscoveryCallForm() {
   const [fields, setFields] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -40,7 +41,7 @@ export default function DiscoveryCallForm() {
         setFormValues(initialValues);
       } catch (err) {
         console.error("Failed to load form config:", err);
-        setErrorMsg("Failed to load the form fields. Please try again later.");
+        setErrorMsg("Failed to load form configuration. Please try again later.");
       } finally {
         setLoading(false);
       }
