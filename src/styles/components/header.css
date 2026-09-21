@@ -240,11 +240,14 @@ body.menu-open {
     inset: auto;
     left: 50%;
     transform: translateX(-50%);
-    width: 470px; /* Sized to fit tablet screens without overlapping the logo */
+    width: 470px;
+    /* Sized to fit tablet screens without overlapping the logo */
     height: 47px;
     flex-direction: row;
-    justify-content: center; /* Centered items to guarantee balanced margins */
-    gap: 16px; /* Uniform horizontal gap between items */
+    justify-content: center;
+    /* Centered items to guarantee balanced margins */
+    gap: 16px;
+    /* Uniform horizontal gap between items */
     align-items: center;
     background-color: #00338d;
     padding: 0 16px;
@@ -258,7 +261,8 @@ body.menu-open {
     cursor: pointer;
     text-decoration: none;
     width: auto;
-    padding: 6px 8px !important; /* Sparsed spacing for tablet views */
+    padding: 6px 8px !important;
+    /* Sparsed spacing for tablet views */
     border-radius: 8px;
     display: inline-flex;
     align-items: center;
@@ -368,7 +372,8 @@ body.menu-open {
   }
 
   .vector-image {
-    width: 120px; /* Reduced width to prevent overlap on tablet views */
+    width: 120px;
+    /* Reduced width to prevent overlap on tablet views */
   }
 }
 
@@ -387,7 +392,8 @@ body.menu-open {
   .nav {
     width: 520px;
     padding: 0 24px;
-    gap: 20px; /* Slightly wider gaps on desktop views */
+    gap: 20px;
+    /* Slightly wider gaps on desktop views */
   }
 
   .nav-link {
@@ -416,7 +422,8 @@ body.menu-open {
     width: 550px;
     height: 47px;
     padding: 0 24px;
-    gap: 24px; /* Even wider gaps on large desktop views */
+    gap: 24px;
+    /* Even wider gaps on large desktop views */
   }
 
   .vector-image {
@@ -459,14 +466,15 @@ body.menu-open {
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2) !important;
   }
-  
+
   .header-container.dark-theme .nav-link {
     color: rgba(255, 255, 255, 0.7) !important;
-    padding: 6px 8px !important; /* Matches adjusted tablet padding */
+    padding: 6px 8px !important;
+    /* Matches adjusted tablet padding */
     border-radius: 8px;
     transition: all 0.2s ease;
   }
-  
+
   .header-container.dark-theme .nav-link:hover {
     color: #ffffff !important;
     background-color: rgba(255, 255, 255, 0.08) !important;
@@ -483,7 +491,7 @@ body.menu-open {
   .header-container.dark-theme .dropdown-arrow {
     border-top-color: rgba(255, 255, 255, 0.85) !important;
   }
-  
+
   .header-container.dark-theme .dropdown-menu {
     background-color: rgba(10, 25, 60, 0.95) !important;
     backdrop-filter: blur(12px) !important;
@@ -529,7 +537,7 @@ body.menu-open {
   .header-container.dark-theme .dropdown-item {
     color: rgba(255, 255, 255, 0.75) !important;
   }
-  
+
   .header-container.dark-theme .dropdown-item:hover {
     color: #ffffff !important;
   }
