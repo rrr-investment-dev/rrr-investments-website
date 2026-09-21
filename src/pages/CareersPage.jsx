@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { fetchCareers } from "../lib/api";
 import "../styles/careers.css";
-
-// Configure base API URL matching backend port
-const API_BASE_URL = "http://localhost:3000/api";
 
 // --- Styled Inline SVG Icons ---
 const PinIcon = () => (
@@ -38,9 +35,9 @@ export default function CareersPage() {
   useEffect(() => {
     const loadJobs = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/website/careers`);
-        if (response.data && Array.isArray(response.data.data)) {
-          const fetchedJobs = response.data.data;
+        const response = await fetchCareers();
+        if (response && Array.isArray(response.data)) {
+          const fetchedJobs = response.data;
           setJobs(fetchedJobs);
 
           // Extract unique departments

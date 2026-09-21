@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { fetchCareers, submitJobApplication } from "../lib/api";
 import "../styles/careers.css";
-
-// Configure base API URL matching backend port
-const API_BASE_URL = "http://localhost:3000/api";
 
 // --- Styled Inline SVG Icons ---
 const BackIcon = () => (
@@ -74,9 +71,9 @@ export default function JobDetailsPage() {
   useEffect(() => {
     const loadJob = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/website/careers`);
-        if (response.data && Array.isArray(response.data.data)) {
-          const matched = response.data.data.find(j => j._id === id);
+        const response = await fetchCareers();
+        if (response && Array.isArray(response.data)) {
+          const matched = response.data.find(j => j._id === id);
           setJob(matched || null);
         } else {
           setJob(null);
@@ -142,19 +139,11 @@ export default function JobDetailsPage() {
     submitData.append("resume", formData.resume);
 
     try {
-      await axios.post(
-        `${API_BASE_URL}/website/careers/${id}/apply`,
-        submitData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      await submitJobApplication(id, submitData);
       setIsSuccess(true);
       setFormData({ name: "", email: "", phone: "", coverLetter: "", resume: null });
     } catch (err) {
-      alert(err.response?.data?.message || "Failed to submit application.");
+      alert(err.message || "Failed to submit application.");
     } finally {
       setIsSubmitting(false);
     }
