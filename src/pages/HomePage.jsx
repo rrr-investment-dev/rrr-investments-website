@@ -285,76 +285,83 @@ export default function HomePage() {
             Global Market Sentiment and Investor Mindset
           </h2>
           <div className="content-grid">
-            {loadingPosts ? (
-              <p>Loading posts...</p>
-            ) : posts.length > 0 ? (
-              <>
-                <div className="main-card">
-                  <img
-                    src={getImageUrl(posts[0].image)}
-                    alt={posts[0].title || "Market Image"}
-                    className="main-image"
-                  />
-                  <div className="card-content">
-                    <h3 className="main-heading">
-                      {posts[0].title}{" "}
-                      {posts[0].platform && `(${posts[0].platform})`}
-                    </h3>
-                    <h4 className="subheading">{posts[0].subTitle}</h4>
-                    <p className="description">{posts[0].description}</p>
-                    <div className="card-footer">
-                      <span className="arrows-links">
-                        Explore the complete story
-                      </span>
-                      <a
-                        href={posts[0].link || "#"}
-                        className="arrows-links-wrapper arrow-btn"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        →
-                      </a>
+            {activeTab === "Insights" ? (
+              loadingPosts ? (
+                <p>Loading posts...</p>
+              ) : posts.length > 0 ? (
+                <>
+                  <div className="main-card">
+                    <img
+                      src={getImageUrl(posts[0].image)}
+                      alt={posts[0].title || "Market Image"}
+                      className="main-image"
+                    />
+                    <div className="card-content">
+                      <h3 className="main-heading">
+                        {posts[0].title}{" "}
+                        {posts[0].platform && `(${posts[0].platform})`}
+                      </h3>
+                      <h4 className="subheading">{posts[0].subTitle}</h4>
+                      <p className="description">{posts[0].description}</p>
+                      <div className="card-footer">
+                        <span className="arrows-links">
+                          Explore the complete story
+                        </span>
+                        <a
+                          href={posts[0].link || "#"}
+                          className="arrows-links-wrapper arrow-btn"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          →
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {posts.length > 1 && (
-                  <div className="dashboard-cards">
-                    {posts.slice(1, 3).map((post) => (
-                      <div className="dashboard-card" key={post._id}>
-                        <div className="blue-bar"></div>
-                        <div className="dashboard-content">
-                          <h4>
-                            {post.title} {post.platform && `(${post.platform})`}
-                          </h4>
-                          <p className="subtitle">{post.subTitle}</p>
-                          <p className="desc">{post.description}</p>
-                          <div className="card-footer">
-                            <span className="arrows-links">
-                              Explore the complete story
-                            </span>
-                            <a
-                              href={post.link || "#"}
-                              className="arrows-links-wrapper arrow-btn"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              →
-                            </a>
+                  {posts.length > 1 && (
+                    <div className="dashboard-cards">
+                      {posts.slice(1, 3).map((post) => (
+                        <div className="dashboard-card" key={post._id}>
+                          <div className="blue-bar"></div>
+                          <div className="dashboard-content">
+                            <h4>
+                              {post.title} {post.platform && `(${post.platform})`}
+                            </h4>
+                            <p className="subtitle">{post.subTitle}</p>
+                            <p className="desc">{post.description}</p>
+                            <div className="card-footer">
+                              <span className="arrows-links">
+                                Explore the complete story
+                              </span>
+                              <a
+                                href={post.link || "#"}
+                                className="arrows-links-wrapper arrow-btn"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                →
+                              </a>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <p>No insights available right now.</p>
+              )
             ) : (
-              <p>No insights available right now.</p>
+              <p>No research available right now.</p>
             )}
           </div>
+
           <div className="all-insights">
             <Link to="/insights">
-              <button>All Insights</button>
+              <button>
+                {activeTab === "Insights" ? "All Insights" : "All Research"}
+              </button>
             </Link>
           </div>
         </section>
