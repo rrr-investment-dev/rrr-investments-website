@@ -45,8 +45,12 @@ export default function StrategicGrowthFundPage() {
     const isAnyModalOpen = isPopupOpen || isThemesModalOpen;
     if (isAnyModalOpen) {
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+      window.__lenis?.stop();
     } else {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      window.__lenis?.start();
     }
 
     const handleKeyDown = (e) => {
@@ -59,6 +63,8 @@ export default function StrategicGrowthFundPage() {
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      window.__lenis?.start();
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isPopupOpen, isThemesModalOpen]);
@@ -327,6 +333,7 @@ export default function StrategicGrowthFundPage() {
       <div
         className={`popup-overlay ${isPopupOpen ? "active" : ""}`}
         id="discoveryCallPopup"
+        data-lenis-prevent="true"
         onClick={(e) => {
           if (e.target.id === "discoveryCallPopup") setIsPopupOpen(false);
         }}
@@ -334,7 +341,7 @@ export default function StrategicGrowthFundPage() {
         aria-modal="true"
         aria-labelledby="discoveryModalTitle"
       >
-        <div className="popup-content">
+        <div className="popup-content" data-lenis-prevent="true">
           <div className="popup-header-row">
             <div>
               <span className="popup-eyebrow">AIF CATEGORY II INQUIRY</span>
@@ -360,6 +367,7 @@ export default function StrategicGrowthFundPage() {
       <div
         className={`popup-overlay ${isThemesModalOpen ? "active" : ""}`}
         id="themesModalPopup"
+        data-lenis-prevent="true"
         onClick={(e) => {
           if (e.target.id === "themesModalPopup") setIsThemesModalOpen(false);
         }}
@@ -367,7 +375,7 @@ export default function StrategicGrowthFundPage() {
         aria-modal="true"
         aria-labelledby="themesModalTitle"
       >
-        <div className="popup-content themes-popup-content">
+        <div className="popup-content themes-popup-content" data-lenis-prevent="true">
           <div className="popup-header-row">
             <div>
               <span className="popup-eyebrow">INVESTMENT THESIS</span>

@@ -67,24 +67,31 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Popup body scroll lock
+  // Popup body scroll lock & pause Lenis smooth scroll
   useEffect(() => {
     if (isPopupOpen) {
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+      window.__lenis?.stop();
     } else {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      window.__lenis?.start();
     }
-  }, [isPopupOpen]);
 
-  // Close popup on Escape key
-  useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape" && isPopupOpen) {
         setIsPopupOpen(false);
       }
     };
     document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      window.__lenis?.start();
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, [isPopupOpen]);
 
   return (
@@ -471,11 +478,12 @@ export default function HomePage() {
       <div
         className={`popup-overlay ${isPopupOpen ? "active" : ""}`}
         id="discoveryCallPopup"
+        data-lenis-prevent="true"
         onClick={(e) => {
           if (e.target.id === "discoveryCallPopup") setIsPopupOpen(false);
         }}
       >
-        <div className="popup-content">
+        <div className="popup-content" data-lenis-prevent="true">
           <button
             className="close-popup"
             aria-label="Close popup"

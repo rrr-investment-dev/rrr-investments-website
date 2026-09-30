@@ -184,10 +184,31 @@ export default function ApproachPage() {
     return () => observer.disconnect();
   }, []);
 
-  // Popup logic
+  // Popup logic & Lenis pause
   useEffect(() => {
-    if (isPopupOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "";
+    if (isPopupOpen) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+      window.__lenis?.stop();
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      window.__lenis?.start();
+    }
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && isPopupOpen) {
+        setIsPopupOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      window.__lenis?.start();
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, [isPopupOpen]);
 
   return (
@@ -533,11 +554,12 @@ export default function ApproachPage() {
       <div
         className={`popup-overlay ${isPopupOpen ? "active" : ""}`}
         id="discoveryCallPopup"
+        data-lenis-prevent="true"
         onClick={(e) => {
           if (e.target.id === "discoveryCallPopup") setIsPopupOpen(false);
         }}
       >
-        <div className="popup-content">
+        <div className="popup-content" data-lenis-prevent="true">
           <button className="close-popup" aria-label="Close popup" onClick={() => setIsPopupOpen(false)}>
             &times;
           </button>
