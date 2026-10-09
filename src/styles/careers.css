@@ -780,29 +780,10 @@
    ======================================================== */
 
 .details-page-wrapper {
-  max-width: 860px !important;
+  width: 100%;
   margin: 0 auto;
-  padding: 40px var(--container-padding) 60px;
   box-sizing: border-box;
   font-family: var(--font-family-base);
-}
-
-@media (--md) {
-  .details-page-wrapper {
-    padding: 50px var(--container-padding) 70px;
-  }
-}
-
-@media (--lg) {
-  .details-page-wrapper {
-    padding: 60px var(--container-padding) 80px;
-  }
-}
-
-@media (--xxl) {
-  .details-page-wrapper {
-    padding: 70px var(--container-padding) 100px;
-  }
 }
 
 .back-link {
@@ -831,84 +812,92 @@
   color: inherit;
 }
 
-/* --- Details Document --- */
-.job-details-document {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 4px 20px -10px rgba(0, 0, 0, 0.05);
+/* --- Details Hero Header --- */
+.details-hero {
+  margin-bottom: 36px;
+  text-align: left;
+  max-width: 100%;
+  animation: fadeIn 0.6s ease-out;
 }
 
 @media (--md) {
-  .job-details-document {
-    border-radius: 20px;
-    padding: 40px;
+  .details-hero {
+    margin-bottom: 44px;
+    max-width: 780px;
   }
 }
 
 @media (--lg) {
-  .job-details-document {
-    border-radius: 24px;
-    padding: 48px;
+  .details-hero {
+    margin-bottom: 48px;
+    max-width: 820px;
   }
 }
 
-@media (--xxl) {
-  .job-details-document {
-    padding: 56px;
+@media (--xl) {
+  .details-hero {
+    margin-bottom: 52px;
+    max-width: 880px;
   }
 }
 
-.details-doc-header {
-  border-bottom: 1px solid #f1f5f9;
-  padding-bottom: 28px;
-  margin-bottom: 28px;
-  text-align: left;
-}
-
-.details-doc-title {
-  font-size: 24px;
+.details-hero-title {
+  font-size: 26px;
   font-weight: 700;
   color: #00338d;
-  margin: 0 0 14px 0;
+  margin: 0 0 16px 0;
   line-height: 1.2;
   font-family: var(--font-family-base);
 }
 
 @media (--md) {
-  .details-doc-title {
-    font-size: 30px;
-    margin-bottom: 16px;
+  .details-hero-title {
+    font-size: 34px;
+    margin-bottom: 18px;
   }
 }
 
 @media (--lg) {
-  .details-doc-title {
-    font-size: 34px;
+  .details-hero-title {
+    font-size: 38px;
+    margin-bottom: 20px;
   }
 }
 
 @media (--xxl) {
-  .details-doc-title {
-    font-size: 38px;
+  .details-hero-title {
+    font-size: 44px;
   }
 }
 
 .details-doc-specs {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  font-size: 12.5px;
+  align-items: center;
+  gap: 12px 18px;
+  font-size: 13px;
   color: #64748b;
   font-weight: 600;
 }
 
 @media (--md) {
   .details-doc-specs {
-    gap: 16px;
-    font-size: 13px;
+    gap: 14px 22px;
+    font-size: 13.5px;
   }
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.meta-icon {
+  width: 15px !important;
+  height: 15px !important;
+  color: #00338d;
+  flex-shrink: 0;
 }
 
 .apply-button-header {
@@ -939,6 +928,73 @@
 
 .apply-button-header:active {
   transform: scale(0.97);
+}
+
+/* --- Details Document (Single Unified Card) --- */
+.job-details-document {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px -10px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (--md) {
+  .job-details-document {
+    border-radius: 20px;
+    padding: 40px;
+  }
+}
+
+@media (--lg) {
+  .job-details-document {
+    border-radius: 24px;
+    padding: 48px;
+  }
+}
+
+@media (--xxl) {
+  .job-details-document {
+    padding: 56px;
+  }
+}
+
+.details-doc-header {
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 28px;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.details-doc-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #00338d;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+  font-family: var(--font-family-base);
+}
+
+@media (--md) {
+  .details-doc-title {
+    font-size: 32px;
+    margin-bottom: 18px;
+  }
+}
+
+@media (--lg) {
+  .details-doc-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (--xxl) {
+  .details-doc-title {
+    font-size: 40px;
+  }
 }
 
 .details-doc-body {

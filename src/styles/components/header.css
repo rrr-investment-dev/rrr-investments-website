@@ -72,6 +72,8 @@
   top: 0;
   width: 105px;
   height: auto;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .vector-image img {

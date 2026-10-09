@@ -185,9 +185,9 @@ export default function JobDetailsPage() {
         <BackIcon /> <span>Back to Open Positions</span>
       </button>
 
-      {/* ── Job Details Document ── */}
+      {/* ── Job Details Document (Single Unified Card) ── */}
       <div className="job-details-document">
-        {/* Header Block */}
+        {/* Header Block inside the Document */}
         <div className="details-doc-header">
           <span className="hero-eyebrow" style={{ marginBottom: "8px" }}>
             {job.department}

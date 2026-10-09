@@ -5,6 +5,7 @@ export default function Header() {
   const location = useLocation();
   const pathname = location.pathname;
   const isDarkPage = pathname?.includes("rrr-strategic-growth-fund");
+  const isJobDetailsPage = pathname?.startsWith("/careers/") && pathname !== "/careers";
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -36,14 +37,16 @@ export default function Header() {
 
   return (
     <>
-      <div className={`vector-image${isDarkPage ? " dark-theme" : ""}`}>
-        <img
-          src="/assets/Images/Vector Illustration header.svg"
-          alt=""
-          width={335}
-          height={300}
-        />
-      </div>
+      {!isJobDetailsPage && (
+        <div className={`vector-image${isDarkPage ? " dark-theme" : ""}`}>
+          <img
+            src="/assets/Images/Vector Illustration header.svg"
+            alt=""
+            width={335}
+            height={300}
+          />
+        </div>
+      )}
       <div className={`header-container${isDarkPage ? " dark-theme" : ""}`}>
         <header className="header">
           <div
